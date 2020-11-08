@@ -2,21 +2,21 @@
  Количество вводимых чисел и цифра, которую необходимо посчитать, задаются вводом с клавиатуры.
 '''
 
-x = input('Какую цифру искать?')
+x = int(input('Какую цифру искать?'))
 n = int(input('Сколько чисел введешь?'))
 
 
 def find_count(x, n, c=0):
     while n > 0:
-        a = input('Введите число:')
-        c = c + (list(a).count(x))
+        a = int(input('Введите число:'))
+        while a > 0:
+            for i in str(a):
+                if int(i) == x:
+                    c += 1
+            else:
+                break
         return find_count(x, n - 1, c)
     print(c)
 
 
 find_count(x, n)
-
-
-
-
-
